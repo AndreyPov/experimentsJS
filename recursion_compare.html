@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Sum_different_solutions</title>
+</head>
+<body>
+	<script>
+		var variant = prompt("Choose the variant: 1 - for simple loop counting;	2 - for recursion; 3 - for arithmetical progression");
+		var n = prompt("Type the final destination:");
+		var sumTo;
+		var sum = 0;
+		switch(variant)
+		{
+			case '1':{
+			sumTo = function(n){		
+				for (var i = 1; i <= n; i++){
+					sum += i;
+				}
+			return sum;
+			}
+			break;
+			}
+			case '2':{
+			sumTo = function(n)
+			{	
+				if (n==1) return 1;
+				return parseInt(n)+sumTo(n-1);
+			}
+			break;
+			}
+			case '3':{
+			sumTo = function(n)
+			{
+				sum = n*(parseInt(n) + 1)/2; //be careful 1+n or n+1 gives 15 or 51
+				return sum;
+			}
+			break;
+			}
+		}
+		alert("Sum is equals to "+sumTo(n));
+			</script>
+		
+</body>
+</html>
