@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>setTimeOut</title>
+</head>
+<body>
+	<script>
+	var i;
+	for(i = 0; i < 5; i++) {
+		setTimeout(function(){
+			i++;
+		}, 1000);
+	}
+	console.log(i);
+	setTimeout(function(){
+			console.log(i + " - after 2 seconds");
+		}, 1000);
+
+	</script>
+	
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Global Objects in JS</title>
+</head>
+<body>
+	<script>
+		// На момент инициализации, до выполнения кода:
+		// window = { f: function, a: undefined, g: undefined }
+
+		var a = 5;
+		// window = { f: function, a: 5, g: undefined }
+
+		function f(arg) { /*...*/ }
+		// window = { f: function, a: 5, g: undefined } без изменений, f обработана ранее
+
+		var g = function(arg) { /*...*/ };
+		// window = { f: function, a: 5, g: function }	
+
+
+
+		alert("w" in window); // true,  т.к. есть свойство window.w
+		alert(w); // равно undefined,  присваивание будет выполнено далее
+		alert(e); // function ...,  готовая к выполнению функция
+		alert(r); // undefined, т.к. это переменная, а не Function Declaration
+
+var w = 5;
+function e() { /*...*/ }
+var r = function() { /*...*/ };
+	</script>
+</body>
+</html>
