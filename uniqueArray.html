@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+	<script>
+	function unique(arr) {
+		var obj = {};
+		for(var i = 0; i < arr.length; i++) {
+			var str = arr[i];
+			obj[str] = true;
+		}
+		return Object.keys(obj);
+	}	
+	testingArr = ["Ann, Paul, Michael, Paul, Misha"]; 
+	alert(unique(testingArr));
+	</script>
+	
+</body>
+</html>
