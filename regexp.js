@@ -4,7 +4,7 @@ let re2 = /abc/;
 console.log("Ways to create regexps: " + re1 + "  " + re2);
 
 let re3 = /eighteen\+/;
-console.log("Test for apearing: " + re3.test("eighteen"));
+console.log("Test for appearing: " + re3.test("eighteen"));
 console.log(re3.test("eighteen+"));
 console.log(re3.test("eighteen\+"));
 
@@ -21,7 +21,7 @@ console.log("Same tests for '\s' (whitespace char): " + /\s/.test(2) + /\s/.test
 console.log("Same tests for '\D' (nondigital char): " + /\D/.test(2) + /\D/.test("abs") + /\D/.test("a b2s"));
 
 // how ^ works = invertion. Logical "Not"
-console.log("Check ^[1-9] for 0abs0: " + /^[1-9]/.test("0abs0") + "\n" + "Check ^[1-9] for 0abs40: " + /^[1-9]/.test("0abs40"));
+console.log("Check ^[1-9] for 0abs0: " + /[^1-9]/.test("0abs0") + "\n" + "Check ^[1-9] for 194543: " + /[^1-9]/.test("194543"));
 
 // May be repeated more than once
 console.log("Check for +. 'Can be repeated more than once'(123): " + /\d+/.test("123"));
