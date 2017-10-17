@@ -63,5 +63,39 @@ console.log("Bounderies '\b' is like '^\d': " + /\bcat\b/.test("con\ncat\nenate"
 //conditions
 console.log('15 students'.match(/\d{1,4} (student|teacher|cow|pupil)s?/)[0]);
 
-//replace method + using global for repeats + insensitive
+//replace method + using global(for all the cases, not only for the first) for repeats + insensitive
 console.log("Chunga-changa".replace(/(ch)/gi,"T"));
+
+//replace with $ sign
+console.log("Replacing name and surname with $ sign: \n" + "Hopper, Grace\nMcCarthy, John\nRitchie, Dennis"
+.replace(/([\w ]+), ([\w ]+)/g, "$2 $1"));
+
+var s = "the cia and fbi";
+console.log("Replacing using function: " + s.replace(/\b(fbi|cia)\b/g, function(str) {
+  return str.toUpperCase();
+}));
+// → the CIA and FBI
+
+//Decrease the number of products
+var stock = "1 lemon, 2 cabbages, and 101 eggs";
+function minusOne(match, amount, unit) {
+  amount = Number(amount) - 1;
+  if (amount == 1) // only one left, remove the 's'
+    unit = unit.slice(0, unit.length - 1);
+  else if (amount == 0)
+    amount = "no";
+  return amount + " " + unit;
+}
+console.log("Example with decreasing number of products: " + stock.replace(/(\d+) (\w+)/g, minusOne));
+// → no lemon, 1 cabbage, and 100 eggs
+
+function stripComments(code) {
+  return code.replace(/\/\/.*|\/\*[^]*\*\//g, "");
+}
+console.log("Striping commnets: ");
+console.log(stripComments("1+/* 2 */3"));
+// → 1 + 3
+console.log(stripComments("x = 10;//sdfasdf "));
+// → x = 10;
+console.log(stripComments("1 /* a */+/* b */ 1"));
+// → 1  1
