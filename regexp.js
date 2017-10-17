@@ -52,7 +52,7 @@ let str = "Dude man, that is amazing!".match(/ \w{2} /);
 console.log("Matching for 'Dude man, that is amazing!'" + str[0]);
 
 //puzzle
-var quotedText = /'[^']*'/;
+let quotedText = /'[^']*'/;
 console.log(quotedText.exec("she said 'hello'")[0]);
 console.log(/bad(ly)?/.exec("badly")[0]);
 console.log(/(\d)+/.exec("123")[0]);
@@ -70,14 +70,14 @@ console.log("Chunga-changa".replace(/(ch)/gi,"T"));
 console.log("Replacing name and surname with $ sign: \n" + "Hopper, Grace\nMcCarthy, John\nRitchie, Dennis"
 .replace(/([\w ]+), ([\w ]+)/g, "$2 $1"));
 
-var s = "the cia and fbi";
+let s = "the cia and fbi";
 console.log("Replacing using function: " + s.replace(/\b(fbi|cia)\b/g, function(str) {
   return str.toUpperCase();
 }));
 // → the CIA and FBI
 
 //Decrease the number of products
-var stock = "1 lemon, 2 cabbages, and 101 eggs";
+let stock = "1 lemon, 2 cabbages, and 101 eggs";
 function minusOne(match, amount, unit) {
   amount = Number(amount) - 1;
   if (amount == 1) // only one left, remove the 's'
@@ -99,3 +99,14 @@ console.log(stripComments("x = 10;//sdfasdf "));
 // → x = 10;
 console.log(stripComments("1 /* a */+/* b */ 1"));
 // → 1  1
+
+//
+let name = "harry";
+let text = "Harry is a suspicious character.";
+let regexp = new RegExp("\\b(" + name + ")\\b", "gi");
+console.log(text.replace(regexp, "_$1_"));
+// → _Harry_ is a suspicious character.
+
+//how to work with .search()
+
+console.log("The result of search is the same as for indexOf, but works with regexps: " + "  word here".search(/\S/));
